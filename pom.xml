@@ -63,5 +63,12 @@
 			</plugin>
 		</plugins>
 	</build>
+		<distributionManagement>
+	    <repository>
+	        <id>github</id>
+	        <url>https://maven.pkg.github.com/gm50x/POSTECH_SOAT_DevOps_Desafio_Disciplina</url>
+	    </repository>
+	</distributionManagement>
+
 
 </project>
