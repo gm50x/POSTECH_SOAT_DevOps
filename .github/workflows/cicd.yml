@@ -71,4 +71,4 @@ jobs:
       - name: Release
         shell: bash
         run: |
-          echo "Release ${github.run_number}"
+          echo "Release ${{github.run_number}}"
