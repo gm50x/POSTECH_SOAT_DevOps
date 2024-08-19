@@ -28,3 +28,36 @@ jobs:
         run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy-DEV:
+    runs-on: ubuntu-latest
+    needs: publish
+    environment:
+      name: dev
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - name: Deploy
+        shell: bash
+        run: |
+          echo "Deploy DEV"
+  deploy-STG:
+    runs-on: ubuntu-latest
+    needs: publish
+    environment:
+      name: stg
+    if: github.ref == 'refs/heads/release'
+    steps:
+      - name: Deploy
+        shell: bash
+        run: |
+          echo "Deploy STG"
+  deploy-PRD:
+    runs-on: ubuntu-latest
+    needs: publish
+    environment:
+      name: prd
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy
+        shell: bash
+        run: |
+          echo "Deploy PRD"
