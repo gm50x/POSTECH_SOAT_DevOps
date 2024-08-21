@@ -63,7 +63,7 @@ jobs:
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=gm50x_postech_soat_devops
   publish:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build, code-analisys]
     permissions:
       contents: read
       packages: write
